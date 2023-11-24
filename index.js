@@ -1,3 +1,6 @@
+// Não esqueça de criar um arquivo .env na raiz do seu projeto com o seguinte conteúdo:
+// OPENAI_API_KEY=coloque_aqui_sua_chave
+
 require('dotenv').config();
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const { OpenAI } = require('openai');
