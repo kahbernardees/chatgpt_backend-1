@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pergunte ao ChatGPT</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <label for="inputPrompt">Digite a pergunta:</label>
+    <input type="text" id="inputPrompt">
+    <button onclick="enviar()">Perguntar</button>
+    <input type="text" id="resposta">
+    <script>
+        function enviar() {
+            const valor = document.getElementById("inputPrompt").value;
+            axios.post('http://localhost:4000/pergunte-ao-chatgpt', { prompt: valor })
+                .then(response => {
+                    console.log(response);
+                    document.getElementById("resposta").value = response.data.completion;
+                })
+                .catch(erro => {
+                    console.log(erro);
+                });
+        }
+    </script>
+</body>
+
+</html>
